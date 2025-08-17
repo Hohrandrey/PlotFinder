@@ -29,3 +29,5 @@ cp config.example.py config.py
 # Запустить бота
 python main.py
 ```
+
+## Использованные материалы
