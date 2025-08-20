@@ -5,3 +5,4 @@ congig.py
 *.iml
 *.xml
 *.py
+__pycache__/config.cpython-313.pyc
