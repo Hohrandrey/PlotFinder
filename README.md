@@ -31,4 +31,4 @@ python main.py
 ```
 
 ## Использованные материалы
-Документация aiogram - https://aiogram.readthedocs.io/_/downloads/en/latest/pdf
+Документация **aiogram** - https://aiogram.readthedocs.io/_/downloads/en/latest/pdf
