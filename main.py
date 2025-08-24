@@ -1,38 +1,22 @@
-import asyncio #асинхронный фреймворк
-import logging #модуль для логирования
-import sys # модуль для работы с системными модулями
-
-from aiogram import Dispatcher, Bot, html #импорт диспетчера, класс для бота и html
-from aiogram.client.default import DefaultBotProperties # импорт стандартных настроек для бота
-from aiogram.enums import ParseMode #импорт форматирования текста
-from aiogram.types import Message #импорт сообщений
-from aiogram.filters import CommandStart #импорт каманды старт
+import asyncio # для асинхронного запуска бота
+import logging # модуль для логирования
+from resource.commands.__routers import * # импорт всех роутеров
+from aiogram import Dispatcher, Bot # импорт диспетчера, класс для бота
 from config import TOKEN # импорт токена
 
 
-dp = Dispatcher() #объект для создания обработчиков
+bot = Bot(token=TOKEN) # создание объекта bot со своим токеном
+dp = Dispatcher() # объект для создания обработчиков
 
 
-@dp.message(CommandStart()) #декоратор сообщения /start
-async def command_start_handler(message: Message) -> None: #функция принимающая сообщение и не возвращает событие
-    await message.answer(f'Привет, я бот для удобной покупки участков')
-    await message.answer(f'Hello, {html.bold(message.from_user.full_name)}')
+dp.include_router(start_router)
 
 
-@dp.message() #декоратор для обработчика всех сообщений (без фильтров)
-async def echo_handler(message: Message) -> None: #повторяет все сообщения
-    try:
-        await message.send_copy(chat_id=message.chat.id)
-    except TypeError:
-        await message.answer("Nice try!")
-
-
-async def main() -> None: # Создание в классе объекта Bot и его запуск
-    bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML)) #создание объекта  bot с стандартными настройками и своим токеном
-
+async def main(): # Создание в классе объекта Bot и его запуск
+    await bot.delete_webhook(drop_pending_updates=True) # удаляет все обновления, которые произошли после последнего завершения работы бота
     await dp.start_polling(bot) # запуск бота
 
 
-if __name__ == '__main__': #запуск основной программы
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout) # Настройка логирования: уровень INFO (информационные сообщения), вывод в stdout
+if __name__ == '__main__': # запуск основной программы
+    logging.basicConfig(level=logging.INFO) # Настройка логирования: уровень INFO (информационные сообщения)
     asyncio.run(main()) # Запуск асинхронной функции main() с помощью asyncio
