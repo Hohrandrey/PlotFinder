@@ -32,6 +32,8 @@ python main.py
 
 ## Использованные материалы
 
+Сайт с **PostgreSQL** - https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+
 Документация **aiogram** - https://aiogram.readthedocs.io/_/downloads/en/latest/pdf
 
 Гайды с **HABR**:
