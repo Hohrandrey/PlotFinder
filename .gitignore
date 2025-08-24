@@ -4,5 +4,3 @@ config.py
 .idea/vcs.xml
 *.iml
 *.xml
-*.py
-__pycache__/config.cpython-313.pyc
