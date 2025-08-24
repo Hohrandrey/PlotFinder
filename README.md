@@ -9,9 +9,9 @@ Telegram бот для покупки и продажи земельных уч�
 - 📊 Фильтры и сортировка
 
 ## Технологический стек
-- Python 3.10+
-- Aiogram 3.x
-- PostgreSQL (хранение данных)
+- [Python 3.10+](https://www.python.org/downloads)
+- [Aiogram 3.x](https://docs.aiogram.dev/en/dev-3.x)
+- [PostgreSQL (хранение данных)](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
 ## Установка и запуск
 
@@ -34,6 +34,6 @@ python main.py
 
 Сайт с **PostgreSQL** - https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 
-Документация **aiogram** - https://aiogram.readthedocs.io/_/downloads/en/latest/pdf
+Документация **aiogram** - https://docs.aiogram.dev/en/dev-3.x
 
 Пишем Telegram-ботов с aiogram 3.x - https://github.com/MasterGroosha/aiogram-3-guide?tab=readme-ov-file
