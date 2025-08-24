@@ -32,3 +32,6 @@ python main.py
 
 ## Использованные материалы
 Документация **aiogram** - https://aiogram.readthedocs.io/_/downloads/en/latest/pdf
+
+Гайды с **HABR**:
+https://habr.com/ru/articles/732136
