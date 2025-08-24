@@ -31,7 +31,9 @@ python main.py
 ```
 
 ## Использованные материалы
+
 Документация **aiogram** - https://aiogram.readthedocs.io/_/downloads/en/latest/pdf
 
 Гайды с **HABR**:
-*За границей Hello World: полный гайд по разработке Telegram ботов с помощью Python и Aiogram 3. Часть 1* - https://habr.com/ru/articles/732136
+
+- *За границей Hello World: полный гайд по разработке Telegram ботов с помощью Python и Aiogram 3. Часть 1* - https://habr.com/ru/articles/732136
