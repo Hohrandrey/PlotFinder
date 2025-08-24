@@ -36,6 +36,4 @@ python main.py
 
 Документация **aiogram** - https://aiogram.readthedocs.io/_/downloads/en/latest/pdf
 
-Гайды с **HABR**:
-
-- *За границей Hello World: полный гайд по разработке Telegram ботов с помощью Python и Aiogram 3. Часть 1* - https://habr.com/ru/articles/732136
+Пишем Telegram-ботов с aiogram 3.x - https://github.com/MasterGroosha/aiogram-3-guide?tab=readme-ov-file
