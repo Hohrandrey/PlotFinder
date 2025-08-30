@@ -36,4 +36,6 @@ python main.py
 
 Документация **aiogram** - https://docs.aiogram.dev/en/dev-3.x
 
-Пишем Telegram-ботов с aiogram 3.x - https://github.com/MasterGroosha/aiogram-3-guide?tab=readme-ov-file
+Пишем Telegram-ботов с **aiogram 3.x** - https://github.com/MasterGroosha/aiogram-3-guide?tab=readme-ov-file
+
+Подключаем **Sqlite3** к Telegram боту - https://habr.com/ru/articles/552788
