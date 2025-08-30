@@ -11,7 +11,7 @@ Telegram бот для покупки и продажи земельных уч�
 ## Технологический стек
 - [Python 3.10+](https://www.python.org/downloads)
 - [Aiogram 3.x](https://docs.aiogram.dev/en/dev-3.x)
-- [PostgreSQL (хранение данных)](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+- [SQLite (хранение данных)](https://sqlitestudio.pl)
 
 ## Установка и запуск
 
@@ -32,7 +32,7 @@ python main.py
 
 ## Использованные материалы
 
-Сайт с **PostgreSQL** - https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+Сайт с **SQLite** - https://sqlitestudio.pl
 
 Документация **aiogram** - https://docs.aiogram.dev/en/dev-3.x
 
