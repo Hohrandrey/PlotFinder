@@ -4,3 +4,4 @@ config.py
 .idea/vcs.xml
 *.iml
 *.xml
+*.pyc

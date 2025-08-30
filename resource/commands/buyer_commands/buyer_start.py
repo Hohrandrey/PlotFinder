@@ -1,6 +1,7 @@
-from aiogram import Router, F # роутер для обработки сообщений, инструмент для создания фильтров сообщений
+from aiogram import Router # роутер для обработки сообщений
 from aiogram.types import Message # обработчик входящих сообщений от пользователя
 from aiogram.filters import Command # фильтр для обработки команд
+
 
 router = Router() # Создаем объект роутера для обработки сообщений
 
