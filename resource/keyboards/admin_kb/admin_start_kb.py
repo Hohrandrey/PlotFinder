@@ -3,11 +3,13 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 kb = [
     [KeyboardButton(text='Управление пользователями')],
-    [KeyboardButton(text='Управление участками')]
+    [KeyboardButton(text='Управление участками')],
+    [KeyboardButton(text='Изменение персональных данных')]
 ]
 
 
-keyboard = ReplyKeyboardMarkup(
+admin_start_kb = ReplyKeyboardMarkup(
     keyboard=kb,
-    resize_keyboard=True
+    resize_keyboard=True,
+    one_time_keyboard=True
 )
