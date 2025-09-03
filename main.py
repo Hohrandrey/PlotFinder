@@ -10,7 +10,12 @@ bot = Bot(token=TOKEN) # создание объекта bot со своим т�
 dp = Dispatcher() # объект для создания обработчиков
 
 
+# список всех роутеров админа
 dp.include_router(admin_start_router)
+dp.include_router(user_management_router)
+
+
+# список всех роутеров покупателя
 dp.include_router(buyer_start_router)
 
 
