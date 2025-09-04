@@ -11,8 +11,8 @@ dp = Dispatcher() # объект для создания обработчико�
 
 
 # список всех роутеров админа
-dp.include_router(admin_start_router)
-dp.include_router(user_management_router)
+dp.include_router(admin_start_router) # команда старт
+dp.include_router(user_management_router) # управление пользователями
 
 
 # список всех роутеров покупателя
