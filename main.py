@@ -5,7 +5,6 @@ from resource.commands.__routers import * # импорт всех роутеро
 from aiogram import Dispatcher, Bot # импорт диспетчера, класс для бота
 from config import TOKEN # импорт токена
 
-
 bot = Bot(token=TOKEN) # создание объекта bot со своим токеном
 dp = Dispatcher() # объект для создания обработчиков
 
@@ -13,8 +12,9 @@ dp = Dispatcher() # объект для создания обработчико�
 # список всех роутеров админа
 dp.include_router(admin_start_router) # команда старт
 dp.include_router(user_management_router) # управление пользователями
-dp.include_router(сhanging_personal_data) # изменение персональных данных
+dp.include_router(changing_personal_data) # изменение персональных данных
 dp.include_router(plot_management) # управление участками
+dp.include_router(changing_first_name) # изменение фамилии
 
 
 # список всех роутеров покупателя
