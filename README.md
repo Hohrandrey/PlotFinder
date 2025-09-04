@@ -39,3 +39,9 @@ python main.py
 Пишем Telegram-ботов с **aiogram 3.x** - https://github.com/MasterGroosha/aiogram-3-guide?tab=readme-ov-file
 
 Подключаем **Sqlite3** к Telegram боту - https://habr.com/ru/articles/552788
+
+Работа с SQLite в Python (для чайников) - https://habr.com/ru/articles/754400
+
+Памятка/шпаргалка по SQL - https://habr.com/ru/articles/564390
+
+Проверка SQL запросов - https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
