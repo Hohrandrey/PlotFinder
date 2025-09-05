@@ -9,7 +9,7 @@ kb = [
 
 
 plot_management_kb = ReplyKeyboardMarkup(
-    keybord = kb,
+    keyboard = kb,
     resize_keyboard = True,
     one_time_keyboard = True
 )

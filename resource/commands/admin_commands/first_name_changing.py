@@ -12,10 +12,9 @@ async def changing_first_name(message: Message):
     await message.answer("Введите новую фамилию")
     """
     Здесь реализация изменения фамилии в БД через db_request
-    
     """
     username = message.from_user.username
-    new_first_name = message.text.strip() # сделать так, чтобы в этой переменной был ответ пользователя
+    new_first_name = message.text
     await message.answer(username)
     #await changing_first_name(new_first_name, username)
     await message.reply("Фамилия изменена")
