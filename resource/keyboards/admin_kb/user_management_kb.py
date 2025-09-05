@@ -1,3 +1,4 @@
+# клавиатура для управления пользователями
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 
