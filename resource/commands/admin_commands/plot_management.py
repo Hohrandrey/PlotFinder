@@ -11,5 +11,5 @@ router = Router()
 
 @router.message(F.text == "Управление участками", Form.admin_start)
 async def plot_management(message: Message, state: FSMContext):
-    await message.answer(f'Меню управления участками', reply_markup = plot_management_kb) # сообщение и подключение клавиатуры
     await state.set_state(Form.plot_management)
+    await message.answer(f'Меню управления участками', reply_markup = plot_management_kb) # сообщение и подключение клавиатуры

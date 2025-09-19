@@ -14,8 +14,8 @@ async def changing_first_name(message: Message, state: FSMContext):
     """
     Здесь реализация изменения Имени в БД через db_request
     """
+    await state.set_state(Form.waiting_for_first_name)  # Ожидание ввода имени
     username = message.from_user.username
-    await state.set_state(Form.waiting_for_first_name) # Ожидание ввода имени
     new_first_name = message.text
     await message.answer(username)
     await changing_first_name(new_first_name, username)

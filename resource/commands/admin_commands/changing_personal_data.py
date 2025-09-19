@@ -10,5 +10,6 @@ router = Router()
 
 
 @router.message(F.text == "Изменение персональных данных", Form.admin_start)
-async def changing_personal_data(message: Message):
+async def changing_personal_data(message: Message, state: FSMContext):
+    await state.set_state(Form.changing_personal_data)
     await message.answer(f'Меню изменения персональных данных', reply_markup = changing_personal_data_kb)

@@ -13,7 +13,7 @@ router = Router()
 
 @router.message(Command('start'))
 async def admin_start(message: Message, state: FSMContext):
+    await state.set_state(Form.admin_start)
     await message.answer(f'Привет, ты админ бота для удобной покупки и продажи участков PlotFinder')
     await asyncio.sleep(0.7) # пауза между сообщениями в секунду
     await message.answer(f'Сейчас вы в меню, выберите действие', reply_markup = admin_start_kb) # сообщение и подключение клавиатуры
-    await state.set_state(Form.admin_start)
