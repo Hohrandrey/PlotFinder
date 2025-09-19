@@ -1,9 +1,9 @@
 import sqlite3
-from config import db_name
+from config import DB_NAME
 
 
 def changing_first_name(new_first_name, username):
-    connection = sqlite3.connect(db_name) # устанавливаем соединение с базой данных
+    connection = sqlite3.connect(DB_NAME) # устанавливаем соединение с базой данных
     cursor = connection.cursor() # курсор для управления БД
 
     # обновляем имя пользователя с нужным нам username
