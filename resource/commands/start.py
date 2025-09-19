@@ -19,11 +19,20 @@ async def admin_start(message: Message, state: FSMContext):
         await message.answer(f'Привет, ты админ бота для удобной покупки и продажи участков PlotFinder')
         await asyncio.sleep(0.7) # пауза между сообщениями в секунду
         await message.answer(f'Сейчас вы в меню, выберите действие', reply_markup = admin_start_kb) # сообщение и подключение клавиатуры
-    elif check_role(username) == 'buyer':
+        await state.set_state(Form.admin_start) # состояние старта админа
+    elif check_role(username) == 'seller':
         await message.answer(f'Привет, ты продавец в боте для удобной продажи участков PlotFinder')
         await asyncio.sleep(0.7)
-        # добавление клавиатуры продавца
+        '''
+        
+        добавление клавиатуры продавца
+        
+        '''
+        await state.set_state(Form.seller_start) # состояние старта продавца
     else:
         await message.answer(f'Привет, ты покупатель в боте для удобной покупки участков PlotFinder')
         await asyncio.sleep(0.7)
-        # добавление клавиатуры покупателя
+        '''
+        добавление клавиатуры покупателя
+        '''
+        await state.set_state(Form.buyer_start) # состояние старта покупателя

@@ -9,6 +9,7 @@ def check_role(username):
 
     cursor.execute('SELECT role FROM users WHERE username = ?', (username,))
     result = cursor.fetchone()
+    return result[0]
 
 
     connection.commit()

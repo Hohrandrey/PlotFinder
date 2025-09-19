@@ -16,6 +16,8 @@ class Form(StatesGroup): # список состояний
 
 
     # продавец
+    seller_start = State()
 
 
     # покупатель
+    buyer_start = State()
