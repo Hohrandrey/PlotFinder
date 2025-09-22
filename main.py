@@ -12,9 +12,13 @@ dp = Dispatcher() # объект для создания обработчико�
 # список всех роутеров админа
 dp.include_router(start_router) # команда старт
 dp.include_router(user_management_router) # управление пользователями
-dp.include_router(changing_personal_data) # изменение персональных данных
 dp.include_router(plot_management) # управление участками
-dp.include_router(changing_first_name) # изменение фамилии
+
+
+dp.include_router(changing_personal_data) # изменение персональных данных
+dp.include_router(changing_first_name) # изменение имени
+dp.include_router(changing_patronymic) # изменение отчества
+dp.include_router(changing_last_name) # изменение фамилии
 
 
 # список всех роутеров покупателя

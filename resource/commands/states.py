@@ -8,6 +8,7 @@ class Form(StatesGroup): # список состояний
     changing_personal_data = State()  # смена пд
     waiting_for_last_name = State()  # смена фамилии
     waiting_for_first_name = State()  # смена имени
+    waiting_for_patronymic = State() # смена отчества
 
     # админ
     admin_start = State() # выбор дальнейших действий для админа
