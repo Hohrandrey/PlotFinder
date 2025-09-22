@@ -2,7 +2,7 @@ import sqlite3
 from config import DB_NAME
 
 
-def changing_first_name(new_first_name, username):
+def changing_first_name_db(new_first_name, username):
     connection = sqlite3.connect(DB_NAME) # устанавливаем соединение с базой данных
     cursor = connection.cursor() # курсор для управления БД
 
