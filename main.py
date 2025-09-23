@@ -19,6 +19,7 @@ dp.include_router(changing_personal_data) # изменение персонал�
 dp.include_router(changing_first_name) # изменение имени
 dp.include_router(changing_patronymic) # изменение отчества
 dp.include_router(changing_last_name) # изменение фамилии
+dp.include_router(adding_and_removing_users) # добавление и удаление пользователей
 
 
 # список всех роутеров покупателя

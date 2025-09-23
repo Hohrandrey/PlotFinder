@@ -7,3 +7,4 @@ from .admin_commands.changing_personal_data import router as changing_personal_d
 from .admin_commands.first_name_changing import router as changing_first_name
 from .admin_commands.patronymic_changing import router as changing_patronymic
 from .admin_commands.last_name_changing import router as changing_last_name
+from .admin_commands.adding_and_removing_users import router as adding_and_removing_users
