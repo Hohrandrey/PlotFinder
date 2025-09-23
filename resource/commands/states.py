@@ -9,6 +9,7 @@ class Form(StatesGroup): # список состояний
     waiting_for_last_name = State()  # смена фамилии
     waiting_for_first_name = State()  # смена имени
     waiting_for_patronymic = State() # смена отчества
+    back_and_menu = State() # ожидание для кнопок назад и в меню
 
     # админ
     admin_start = State() # выбор дальнейших действий для админа
