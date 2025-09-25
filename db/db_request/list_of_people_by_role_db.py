@@ -9,5 +9,13 @@ def list_of_people_by_role_db(role):
 
     cursor.execute('select username from users where role = ?', (role,))
 
+    users = cursor.fetchall()
+    list_of_people = []
+
+    for user in users:
+        list_of_people.append(user)
+
+    return list_of_people
+
     conn.commit()
     conn.close()
