@@ -1,9 +1,10 @@
+# изменение отчества
 from aiogram import F
 from ..states import Form
 from aiogram import Router
 from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
-from db.db_request.patronymic_changing_db import patronymic_changing_db
+from db.db_request.changing_personal_data.patronymic_changing_db import patronymic_changing_db
 from ...keyboards.back_and_menu_button import back_and_menu_button
 from ...keyboards.admin_kb.admin_start_kb import admin_start_kb
 from ...keyboards.admin_kb.changing_personal_data_kb import changing_personal_data_kb

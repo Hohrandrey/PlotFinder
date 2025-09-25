@@ -1,3 +1,4 @@
+# проверка какая у пользователя роль
 import sqlite3
 from config import DB_NAME
 

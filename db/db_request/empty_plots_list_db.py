@@ -1,3 +1,4 @@
+# список участков и данных по ним
 import sqlite3
 from config import DB_NAME
 

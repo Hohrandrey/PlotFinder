@@ -1,3 +1,4 @@
+# всё, что выполняется при старте программы
 import asyncio
 from aiogram import Router
 from aiogram.types import Message
