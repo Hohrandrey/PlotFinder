@@ -22,6 +22,7 @@ class Form(StatesGroup): # список состояний
     user_management = State() # состояние управления пользователями
     adding_user = State() # добавление пользователя
     removing_user = State() # удаление пользователя
+    user_choosing = State() # выбор пользователя
 
     # управление участками
     plot_management = State() # состояние управления участками

@@ -15,7 +15,7 @@ def list_of_people_by_role_db(role):
     for user in users:
         list_of_people.append(user)
 
-    return list_of_people
-
     conn.commit()
     conn.close()
+
+    return list_of_people

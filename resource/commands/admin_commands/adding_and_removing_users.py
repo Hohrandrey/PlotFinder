@@ -5,9 +5,7 @@ from aiogram import Router
 from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 from ...keyboards.admin_kb.user_management_kb import user_management_kb
-from db.db_request.adding_and_removing.adding_users_db import adding_users_db
 from db.db_request.adding_and_removing.removing_users_db import removing_users_db
-from ...keyboards.admin_kb.list_of_people_by_role_kb import list_of_people_by_role_kb
 from ...keyboards.admin_kb.adding_and_removing_users_kb import adding_and_removing_users_kb
 
 
@@ -33,6 +31,7 @@ async def removing_user(message: Message, state: FSMContext):
 @router.message(F.text == 'Покупатель', Form.removing_user)
 @router.message(F.text == 'Покупатель', Form.adding_user)
 async def adding_removing_users(message: Message, state: FSMContext):
+    from ...keyboards.admin_kb.list_of_people_by_role_kb import list_of_people_by_role_kb
     role_names = {
         'Админ': 'admin',
         'Продавец': 'seller',
@@ -40,13 +39,16 @@ async def adding_removing_users(message: Message, state: FSMContext):
     }
 
     role = role_names[message.text]
-    username = message.from_user.username
+    kb = list_of_people_by_role_kb(role)
+
 
     if await state.get_state() == 'adding_user':
-        await message.answer('Выберите админа для добавления', reply_muprkup = list_of_people_by_role_kb)
+        await message.answer('Выберите админа для добавления', reply_markup = kb)
     else:
-        await message.answer('Выберите админа для удаления', reply_muprkup = list_of_people_by_role_kb)
-        removing_users_db(username, role)
+        await message.answer('Выберите админа для удаления', reply_markup = kb)
+        await state.set_state(Form.user_choosing)
+        selected_person = message.text
+        removing_users_db(selected_person, role)
         await message.answer('Админ удалён')
 
 
