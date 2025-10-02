@@ -12,7 +12,7 @@ def removing_users_db(username, role):
         'buyer' : 'customers'
     }
 
-    cursor.execute('delete from users where username = ?', (username,))
+    cursor.execute('delete from users where username = ? and role = ?', (username, role))
     cursor.execute(f'delete from {roles_tables[role]} where username = ?', (username,))
 
 

@@ -13,7 +13,7 @@ def list_of_people_by_role_db(role):
     list_of_people = []
 
     for user in users:
-        list_of_people.append(user)
+        list_of_people.append(user[0])
 
     conn.commit()
     conn.close()
