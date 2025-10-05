@@ -17,20 +17,26 @@ router = Router()
 @router.message(F.text == 'Добавить пользователя', Form.user_management)
 async def adding_user_choose(message: Message, state: FSMContext):
     await message.answer("Выберите кого добавить", reply_markup = adding_and_removing_users_kb)
-    await state.set_state(Form.adding_removing_user)
+    await state.set_state(Form.adding_user)
 
 
 @router.message(F.text == 'Удалить пользователя', Form.user_management)
+@router.message(F.text == 'Админ', Form.user_management)
+@router.message(F.text == 'Продавец', Form.user_management)
+@router.message(F.text == 'Покупатель', Form.user_management)
 async def removing_user_choose(message: Message, state: FSMContext):
     await message.answer("Выберите кого удалить", reply_markup = adding_and_removing_users_kb)
-    await state.set_state(Form.adding_removing_user)
+    await state.set_state(Form.removing_user)
 
 
-@router.message(F.text == 'Админ', Form.adding_removing_user)
-@router.message(F.text == 'Продавец', Form.adding_removing_user)
-@router.message(F.text == 'Покупатель', Form.adding_removing_user)
+@router.message(F.text == 'Админ', Form.adding_user)
+@router.message(F.text == 'Продавец', Form.adding_user)
+@router.message(F.text == 'Покупатель', Form.adding_user)
+@router.message(F.text == 'Админ', Form.removing_user)
+@router.message(F.text == 'Продавец', Form.removing_user)
+@router.message(F.text == 'Покупатель', Form.removing_user)
 async def adding_removing_users(message: Message, state: FSMContext):
-    from ...keyboards.admin_kb.list_of_people_by_role_kb import list_of_people_by_role_kb
+    from ...keyboards.admin_kb.list_of_people_by_role_kb import list_of_people_by_role_kb # список пользователей в клавиатуре
     role_names = {
         'Админ': 'admin',
         'Продавец': 'seller',
@@ -41,30 +47,26 @@ async def adding_removing_users(message: Message, state: FSMContext):
     people_list = list_of_people_by_role_db(role)
     kb = list_of_people_by_role_kb(role)
 
-    if len(people_list) == 0:
+
+    if len(people_list) == 0 and await state.get_state() == Form.removing_user:
         await message.answer('Список пользователей пуст')
-        if await state.get_state() == 'adding_user':
-            await state.set_state(Form.user_management)
-            await message.answer("Выберите кого добавить", reply_markup=adding_and_removing_users_kb)
-        else:
-            await state.set_state(Form.user_management)
-            await message.answer("Выберите кого удалить", reply_markup=adding_and_removing_users_kb)
+        '''Дописать'''
     else:
-        if await state.get_state() == 'adding_user':
+        if await state.get_state() == Form.adding_user:
             await message.answer('Выберите пользователя для добавления', reply_markup = kb)
-            await state.set_state(Form.adding_user)
+            await state.set_state(Form.user_added)
         else:
             await message.answer('Выберите пользователя для удаления', reply_markup = kb)
-            await state.set_state(Form.removing_user)
+            await state.set_state(Form.user_removed)
             await state.update_data(role=role)
 
 
 
-@router.message(Form.removing_user)
+@router.message(Form.user_removed)
 async def removing_user(message: Message, state: FSMContext):
-    selected_person = message.text
-    data = await state.get_data()
-    role = data.get('role')
+    selected_person = message.text # получение сообщения от пользователя
+    data = await state.get_data() # загрузка сообщения в память
+    role = data.get('role') # запись из памяти в переменную
     removing_users_db(selected_person, role)
     await state.set_state(Form.user_choosen)
     await message.answer('Пользователь удалён')
@@ -73,7 +75,14 @@ async def removing_user(message: Message, state: FSMContext):
 
 
 
-@router.message(F.text == 'Назад', Form.adding_removing_user)
+@router.message(Form.user_added)
+async def adding_user(message: Message, state: FSMContext):
+    pass
+    '''Дописать реализацию'''
+
+
+@router.message(F.text == 'Назад', Form.removing_user)
+@router.message(F.text == 'Назад', Form.adding_user)
 async def back_button(message: Message, state: FSMContext):
     await state.set_state(Form.user_management)
     await message.answer("Меню управления пользователями", reply_markup=user_management_kb)
