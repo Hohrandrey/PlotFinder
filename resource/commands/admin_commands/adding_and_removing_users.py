@@ -7,6 +7,7 @@ from aiogram.fsm.context import FSMContext
 from ...keyboards.admin_kb.admin_start_kb import admin_start_kb
 from ...keyboards.admin_kb.user_management_kb import user_management_kb
 from db.db_request.list_of_people_by_role_db import list_of_people_by_role_db
+from db.db_request.adding_and_removing.adding_users_db import adding_users_db
 from db.db_request.adding_and_removing.removing_users_db import removing_users_db
 from ...keyboards.admin_kb.adding_and_removing_users_kb import adding_and_removing_users_kb
 
@@ -50,10 +51,11 @@ async def adding_removing_users(message: Message, state: FSMContext):
 
     if len(people_list) == 0 and await state.get_state() == Form.removing_user:
         await message.answer('Список пользователей пуст')
-        '''Дописать'''
+        await removing_user_choose(message, state)
+        return
     else:
         if await state.get_state() == Form.adding_user:
-            await message.answer('Выберите пользователя для добавления', reply_markup = kb)
+            await message.answer('Выберите пользователя для добавления')
             await state.set_state(Form.user_added)
         else:
             await message.answer('Выберите пользователя для удаления', reply_markup = kb)
@@ -77,8 +79,12 @@ async def removing_user(message: Message, state: FSMContext):
 
 @router.message(Form.user_added)
 async def adding_user(message: Message, state: FSMContext):
-    pass
     '''Дописать реализацию'''
+    adding_users_db(username, role, first_name, last_name, patronymic, phone, company_name, registration_date)
+    await message.answer('Пользователь добавлен')
+    await state.set_state(Form.admin_start)  # состояние старта админа
+    await message.answer(f'Сейчас вы в меню, выберите действие', reply_markup=admin_start_kb)
+
 
 
 @router.message(F.text == 'Назад', Form.removing_user)
