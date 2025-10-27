@@ -23,8 +23,20 @@ class Form(StatesGroup): # список состояний
     adding_user = State() # добавление пользователя
     removing_user = State() # удаление пользователя
     user_removed = State() # удалён пользователь
-    user_added = State() # удалён пользователь
     user_choosen = State() # выбран пользователя
+    user_added = State() # добавлен пользователь
+
+    username_waiting = State() # ожидание ввода username
+    role_waiting = State() # ожидание выбора роли
+    first_name_waiting = State() # ожидание ввода имени
+    last_name_waiting = State() # ожидание ввода фамилии
+
+    dop_info_need_waiting = State() # ожидание выбора нужен ли доп параметр в виде телефона, отчества или названия компании
+    dop_info_waiting = State() # ожидание выбора доп параметра
+    patronymic_waiting = State() # ожидание ввода отчества
+    phone_waiting = State() # ожидание ввода номера телефона
+    company_name_waiting = State() # ожидание ввода названия компании
+
 
     # управление участками
     plot_management = State() # состояние управления участками
@@ -33,10 +45,10 @@ class Form(StatesGroup): # список состояний
     '''
     продавец
     '''
-    seller_start = State()
+    seller_start = State()#  выбор дальнейших действий для продавца
 
 
     '''
     покупатель
     '''
-    buyer_start = State()
+    buyer_start = State() # выбор дальнейших действий для покупателя
