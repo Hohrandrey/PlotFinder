@@ -102,31 +102,27 @@ async def adding_user(message: Message, state: FSMContext):
     await state.set_state(Form.dop_info_need_waiting)
     dop_info_need = message.text
     if dop_info_need.lower() == 'да':
-        '''
-        сделать так, чтобы повторялось
-        '''
-        await message.answer('Выберите что добавить')
-        await message.answer('1-отчество\n2-телефон\n3-название компании\n4-ничего')
-        await state.set_state(Form.dop_info_waiting)
-        dop_info = message.text
         try:
-            match dop_info:
-                case '1':
-                    await message.answer('Введите отчество пользователя')
-                    await state.set_state(Form.patronymic_waiting)
-                    patronymic = message.text
-                case '2':
-                    await message.answer('Введите номер телефона')
-                    await state.set_state(Form.phone_waiting)
-                    phone = message.text
-                case '3':
-                    await message.answer('Введите название компании')
-                    await state.set_state(Form.company_name_waiting)
-                    company_name = message.text
-                case '4':
-                    '''
-                            сделать выход из цикла
-                        '''
+            while True:
+                await message.answer('Выберите что добавить')
+                await message.answer('1-отчество\n2-телефон\n3-название компании\n4-ничего')
+                await state.set_state(Form.dop_info_waiting)
+                dop_info = message.text
+                match dop_info:
+                    case '1':
+                        await message.answer('Введите отчество пользователя')
+                        await state.set_state(Form.patronymic_waiting)
+                        patronymic = message.text
+                    case '2':
+                        await message.answer('Введите номер телефона')
+                        await state.set_state(Form.phone_waiting)
+                        phone = message.text
+                    case '3':
+                        await message.answer('Введите название компании')
+                        await state.set_state(Form.company_name_waiting)
+                        company_name = message.text
+                    case '4':
+                        break
         except:
             await message.answer('Выбор некорректен, попробуйте снова')
             await state.set_state(Form.dop_info_waiting)
